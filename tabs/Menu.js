@@ -68,8 +68,7 @@ class Menu extends Component {
         .then(res => {
           this.setState({ list: res.data, loading: false });
           const ingredients = this.flatten(this.state.list, "ingredients");
-          const categories = this.state.list.map(item => item.category);
-          this.setState({ ingredients, categories });
+          this.setState({ ingredients });
         })
         .catch(err => {
           console.error(err);
@@ -90,10 +89,9 @@ class Menu extends Component {
     });
   };
   _filter = () => {
-    const { ingredients, categories } = this.state;
+    const { ingredients } = this.state;
     this.props.navigation.navigate("FilterList", {
       ingredients,
-      categories,
       onDone: this._applyFilter
     });
   };
@@ -103,16 +101,16 @@ class Menu extends Component {
       if (ingredient.checked)
         filteredList = [
           ...filteredList,
-          this.state.list.filter(item =>
+          ...this.state.list.filter(item =>
             item.ingredients.includes(ingredient.name)
           )
         ];
     });
     console.log(filteredList);
     this.setState({
-      ingredients,
       filteredList
     });
+    console.log(ingredients);
     this.props.navigation.navigate("Home");
   };
 }
