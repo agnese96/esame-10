@@ -7,7 +7,6 @@ import CardComponent from "./CardComponent";
 
 export default class ListComponent extends Component {
   render() {
-    console.log(this.props);
     return (
       <Content>
         {this.props.loading ? (
