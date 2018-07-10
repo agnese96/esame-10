@@ -107,7 +107,7 @@ class Menu extends Component {
         ];
     });
     console.log(filteredList);
-    if (filtered.list.length)
+    if (filteredList.list.length)
       this.setState({
         filteredList
       });
