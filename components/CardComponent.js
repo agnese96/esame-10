@@ -11,12 +11,15 @@ export default class CardElement extends Component {
     const img = item.image || PLACEHOLDER_IMAGE;
     return (
       <Card style={styles.container}>
-        <CardItem cardBody button onPress={this._press}>
-          <Image source={{ uri: img }} style={styles.image} />
-        </CardItem>
-        <CardItem style={styles.description} button onPress={this._press}>
-          <H2>{item.name}</H2>
-          <Text>{item.info}</Text>
+        <CardItem cardBody button onPress={this._press} />
+        <CardItem button onPress={this._press}>
+          <View style={styles.description}>
+            <H2>{item.name}</H2>
+            <Text>{item.info}</Text>
+          </View>
+          <View style={styles.imageContainer}>
+            <Image source={{ uri: img }} style={styles.image} />
+          </View>
         </CardItem>
         <CardItem style={styles.description} button onPress={this._press}>
           <H3>{item.price} €</H3>
@@ -35,8 +38,12 @@ const styles = StyleSheet.create({
     margin: 20
   },
   image: {
-    height: 200,
-    width: null,
+    height: 100,
+    width: 200,
+    flex: 1
+  },
+  imageContainer: {
+    alignSelf: "flex-end",
     flex: 1
   },
   description: {
