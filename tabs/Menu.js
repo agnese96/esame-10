@@ -107,9 +107,14 @@ class Menu extends Component {
         ];
     });
     console.log(filteredList);
-    this.setState({
-      filteredList
-    });
+    if (filtered.list.length)
+      this.setState({
+        filteredList
+      });
+    else
+      this.setState({
+        filteredList: null
+      });
     console.log(ingredients);
     this.props.navigation.navigate("Home");
   };
