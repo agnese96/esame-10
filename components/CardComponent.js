@@ -1,16 +1,6 @@
 import React, { Component } from "react";
 import { StyleSheet, Image, View } from "react-native";
-import {
-  Card,
-  CardItem,
-  Text,
-  H2,
-  H3,
-  Left,
-  Right,
-  Badge,
-  Body
-} from "native-base";
+import { Card, CardItem, Text, H2, H3 } from "native-base";
 
 const PLACEHOLDER_IMAGE =
   "http://essentielapiculture.fr/wp-content/themes/circolare/images/placeholder.gif";
